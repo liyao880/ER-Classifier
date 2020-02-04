@@ -36,3 +36,5 @@ Note that the root corresponds to the directory where you save data folder
 ``` Python3 train_er.py -dataset "stl10" -delay 0 -file_name "/er_adv_" -epochs 20 -root '/home/er'```
 
 By setting delay<epochs, the program will do adversarial training for |epochs-delay| number of epochs.
+
+
