@@ -67,3 +67,24 @@ class Discriminator(nn.Module):
         x = self.main(x)
         return x   
     
+class SmallCNN(nn.Module):
+    def __init__(self, n_z):
+        super(SmallCNN, self).__init__()
+        """
+        The classifier structure in OT_Classifier
+        """
+        self.n_z = n_z
+        
+        self.main = nn.Sequential(
+            nn.Linear(self.n_z, 512),
+            nn.Dropout(),
+            nn.Linear(512, 512),
+            nn.ReLU(True),
+            nn.Dropout(),
+            nn.Linear(512, 512),
+            nn.ReLU(True),
+            nn.Linear(512, 10),
+        )
+    def forward(self, x):
+        x = self.main(x)
+        return x
